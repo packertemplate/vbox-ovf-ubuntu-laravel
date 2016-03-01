@@ -29,5 +29,8 @@ composer global require "laravel/installer"
 
 echo export PATH='${PATH}':~/.composer/vendor/bin | tee -a ~/.bash_profile
 
+sed -i '/tty/!s/mesg n/tty -s \&\& mesg n/' /home/vagrant/.profile
+sudo sed -i '/tty/!s/mesg n/tty -s \&\& mesg n/' /root/.profile
+
 sudo -E -H apt-get clean
 [ -f /etc/udev/rules.d/70-persistent-net.rule ] && sudo rm -f /etc/udev/rules.d/70-persistent-net.rule || true
